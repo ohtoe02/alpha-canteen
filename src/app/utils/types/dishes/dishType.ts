@@ -1,5 +1,5 @@
 export type dishType = {
-    image: string
+    picture: string
     price: number
     weight: number
     id: number

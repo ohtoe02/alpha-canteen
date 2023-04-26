@@ -1,8 +1,8 @@
 import styles from './ActiveOrders.module.scss'
-import dishesMock from '../../../utils/mock/dishes'
 import OrderCard from "../../ui/cards/order-card/OrderCard";
 import {usePageTitle} from "../../layouts/main/MainLayout";
 import {useEffect} from "react";
+
 
 function ActiveOrders(): JSX.Element {
 	const setPageTitle : any = usePageTitle()

@@ -1,7 +1,7 @@
 import styles from './DishList.module.scss'
 import { dishType } from '../../../../utils/types/dishes/dishType'
 import DishCard from '../dish-card/DishCard'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 function DishList({
 	dishes,
@@ -12,6 +12,8 @@ function DishList({
 }): JSX.Element {
 	const [currentPage, setCurrentPage] = useState(1)
 	const maxPages = Math.ceil(dishes.length / 4)
+
+	console.log(dishes)
 
 	const currentDishes = dishes.slice(
 		4 * (currentPage - 1),
@@ -25,7 +27,7 @@ function DishList({
 				{currentDishes.map(dish => (
 					<DishCard
 						key={dish.id}
-						image={dish.image}
+						picture={dish.picture}
 						price={dish.price}
 						weight={dish.weight}
 						id={dish.id}
