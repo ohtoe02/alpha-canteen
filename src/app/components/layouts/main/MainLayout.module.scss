@@ -1,0 +1,96 @@
+@use 'src/app/utils/variables';
+
+
+.navigation-wrapper {
+  background-color: white;
+  height: 88px;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 44px;
+
+    list-style: none;
+
+    a {
+      color: variables.$dark;
+      font-weight: normal;
+
+    }
+
+    .active {
+      font-weight: bold;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: '';
+        height: 2px;
+        width: calc(100% + 6px);
+        bottom: -6px;
+        left: -3px;
+        border-radius: 99px;
+
+        opacity: 100%;
+
+        background-color: #282828;
+        animation: 200ms shrink ease-in;
+        transition: all 200ms ease-in;
+
+        @keyframes shrink {
+          from {
+            scale: 50%;
+            opacity: 0;
+          }
+
+          to {
+            scale: 100%;
+            opacity: 100%;
+          }
+
+        }
+      }
+
+      transition: all 200ms ease;
+    }
+  }
+}
+
+.header {
+  top: 88px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 1000;
+
+  line-height: 100%;
+  margin: 0;
+  position: absolute;
+  font-weight: 200;
+  font-size: variables.$text_header;
+
+  color: variables.$dark
+}
+
+.container {
+  min-width: 100vw;
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: white;
+}

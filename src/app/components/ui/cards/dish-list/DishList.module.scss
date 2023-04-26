@@ -1,0 +1,59 @@
+@use 'src/app/utils/variables';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    margin: 4px 0 16px 0;
+    text-align: center;
+    line-height: 100%;
+    font-size: variables.$text_large;
+    font-weight: bold;
+  }
+
+  .dish-list {
+    display: grid;
+    width: 100%;
+    column-gap: 12px;
+    row-gap: 64px;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);
+  }
+
+  .pagination {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+
+
+    * {
+      font-size: variables.$text-small;
+    }
+
+
+    button {
+      width: 40px;
+      height: 40px;
+
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      border: 1px solid variables.$dark;
+      background-color: white;
+      color: variables.$dark;
+      border-radius: 4px;
+
+      &:disabled {
+        color: #808080;
+        cursor: default;
+        border-color: #808080;
+      }
+    }
+
+  }
+}

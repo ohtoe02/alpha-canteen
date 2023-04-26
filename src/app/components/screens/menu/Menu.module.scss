@@ -1,0 +1,33 @@
+@use 'src/app/utils/variables';
+
+.container {
+  width: 1240px;
+  height: 600px;
+
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+  padding: 32px;
+
+  background-color: white;
+  border-radius: 12px;
+
+  color: variables.$dark;
+  font-size: variables.$text_header;
+
+  .dish-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px
+
+  }
+
+  .divider {
+    height: 100%;
+    width: 2px;
+    border-radius: 99px;
+    background-color: rgba(40, 40, 40, 0.5);
+  }
+}
