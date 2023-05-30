@@ -5,15 +5,24 @@ import { useState } from 'react'
 
 function DishList({
 	dishes,
-	title
+	cart,
+	category,
+	title,
+	chooseHandler
 }: {
 	dishes: dishType[]
+	cart: { [id: string]: dishType | null }
+	category: string
 	title: string
+	chooseHandler: (id: dishType | null) => void
 }): JSX.Element {
 	const [currentPage, setCurrentPage] = useState(1)
 	const maxPages = Math.ceil(dishes.length / 4)
 
-	console.log(dishes)
+	const selectHandler = (event: any, dish: dishType) => {
+		const newDish = cart[category] === dish ? null : dish
+		chooseHandler(newDish)
+	}
 
 	const currentDishes = dishes.slice(
 		4 * (currentPage - 1),
@@ -22,18 +31,22 @@ function DishList({
 
 	return (
 		<div className={styles.wrapper}>
-			<h2>{title}</h2>
+			<h3>{title}</h3>
 			<section className={styles['dish-list']}>
-				{currentDishes.map(dish => (
-					<DishCard
-						key={dish.id}
-						picture={dish.picture}
-						price={dish.price}
-						weight={dish.weight}
-						id={dish.id}
-						title={dish.title}
-					/>
-				))}
+				{currentDishes.map(dish => {
+
+					return (
+						<DishCard
+							key={dish!.id}
+							id={dish!.id}
+							isSelected={dish!.id === cart[category]?.id}
+							selectHandler={(event: any) => {
+								selectHandler(event, dish)
+							}}
+							dish={dish}
+						/>
+					)
+				})}
 			</section>
 			<div className={styles.pagination}>
 				<button

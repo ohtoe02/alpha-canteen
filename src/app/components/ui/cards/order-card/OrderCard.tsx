@@ -18,9 +18,9 @@ function OrderCard(): JSX.Element {
 					/>
 					<div className={styles['dish-info']}>
 						<p>Категория</p>
-						<h3>Навзание</h3>
+						<h3>Название</h3>
 					</div>
-					<h3>00₽</h3>
+					<h3>00 ₽</h3>
 				</div>
 				<div className={styles['order-dish']}>
 					<img
@@ -31,7 +31,7 @@ function OrderCard(): JSX.Element {
 						<p>Категория</p>
 						<h3>Навзание</h3>
 					</div>
-					<h3>00₽</h3>
+					<h3>00 ₽</h3>
 				</div>
 				<div className={styles['order-dish']}>
 					<img
@@ -42,7 +42,7 @@ function OrderCard(): JSX.Element {
 						<p>Категория</p>
 						<h3>Навзание</h3>
 					</div>
-					<h3>00₽</h3>
+					<h3>00 ₽</h3>
 				</div>
 				<div className={styles['button-container']}>
 					<button className={styles.button + ' ' + styles['cancel-button']}>
@@ -57,4 +57,4 @@ function OrderCard(): JSX.Element {
 	)
 }
 
-export default OrderCard
+export default OrderCard;

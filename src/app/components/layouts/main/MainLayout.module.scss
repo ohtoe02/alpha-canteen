@@ -25,6 +25,10 @@
       color: variables.$dark;
       font-weight: normal;
 
+      a:hover {
+        box-shadow: 0 0 4px #282828;
+      }
+
     }
 
     .active {
@@ -76,8 +80,6 @@
   line-height: 100%;
   margin: 0;
   position: absolute;
-  font-weight: 200;
-  font-size: variables.$text_header;
 
   color: variables.$dark
 }

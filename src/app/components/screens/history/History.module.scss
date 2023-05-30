@@ -1,0 +1,19 @@
+@use 'src/app/utils/variables';
+
+.container {
+  width: 520px;
+  height: 600px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 32px;
+  gap: 8px;
+
+  background-color: white;
+  border-radius: 12px;
+
+  color: variables.$dark;
+  font-size: variables.$text_header;
+}

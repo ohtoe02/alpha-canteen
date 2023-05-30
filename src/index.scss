@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@use 'src/app/utils/variables';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 100%;
   font-weight: 400;
   font-size: 24px;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,6 +19,7 @@
 }
 
 * {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 100%;
@@ -28,6 +30,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -40,28 +43,107 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+button {
+  color: #282828;
+  border-radius: 8px;
+  font-size: variables.$text_default;
+  font-weight: bold;
+  padding: 12px 36px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  transition: 150ms all ease-out;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+.react-datalist-input__container > * {
+  box-sizing: unset;
+}
+
+.react-datalist-input__textbox {
+  line-height: 100%;
+  font-size: variables.$text_default;
+  width: unset;
+  color: #282828;
+  text-overflow: ellipsis;
+}
+
+.react-datalist-input__listbox-option {
+  box-sizing: border-box;
+  color: #282828;
+
+  mark {
+    background-color: unset;
+    color: unset;
+  }
+}
+
+input {
+  color: #282828;
+  background-color: white;
+  border-radius: 8px !important;
+  font-size: variables.$text_default;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  padding: 12px !important;
+  outline: none;
+  border: none;
+  height: 24px;
+  width: calc(100% - 24px) !important;
+
+  &::placeholder {
+    font-size: variables.$text_default;
+    font-weight: 500;
+    color: #808080;
+  }
 }
-button:hover {
-  border-color: #646cff;
+
+
+.datepicker {
+  z-index: 1001;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+h1 {
+  font-size: variables.$text_header;
+  line-height: 100%;
+  font-weight: 200;
+}
+
+h2 {
+  font-size: variables.$text_xlarge;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: variables.$text-large;
+  font-weight: bold;
+}
+
+p {
+  font-size: variables.$text_default;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: variables.$text-medium;
+  font-weight: normal;
+}
+
+h5 {
+  font-size: variables.$text-small;
+  font-weight: normal;
 }
 
 @media (prefers-color-scheme: light) {
@@ -71,8 +153,5 @@ button:focus-visible {
   }
   a:hover {
     color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
   }
 }

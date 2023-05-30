@@ -5,7 +5,9 @@
   height: 600px;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
 
   padding: 32px;
@@ -22,6 +24,31 @@
     justify-content: space-between;
     gap: 12px
 
+  }
+
+  .cart-button {
+    position: absolute;
+    background-color: #282828;
+    color: white;
+    text-align: center;
+    border-radius: 12px;
+    padding: 16px 28px;
+    width: fit-content;
+    bottom: 10%;
+
+    font-size: variables.$text_default;
+    transition: all 350ms cubic-bezier(.71,0,.33,1.56);
+    animation: grow 350ms cubic-bezier(.71,0,.33,1.56);
+    cursor: pointer;
+  }
+
+  @keyframes grow {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
   }
 
   .divider {

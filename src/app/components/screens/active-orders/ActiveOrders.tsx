@@ -13,13 +13,10 @@ function ActiveOrders(): JSX.Element {
 	}, [])
 
 	return (
-		<div className={`${styles.container}`}>
+		<div className={styles.container}>
 			<div className={styles['orders-container']}>
 				<OrderCard />
 				<OrderCard />
-				{/*<DishList dishes={dishes} title={'Основное блюдо'} />*/}
-				{/*<DishList dishes={dishes} title={'Второе блюдо'} />*/}
-				{/*<DishList dishes={dishes} title={'Напитки'} />*/}
 			</div>
 		</div>
 	)
