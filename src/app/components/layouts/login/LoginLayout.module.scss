@@ -20,11 +20,11 @@
 
     background-image: url("./src/app/assets/1.webp");
     background-position: center;
+    filter: brightness(40%);
 
     object-fit: cover;
     background-repeat: no-repeat;
 
-    opacity: 40%;
   }
 
 

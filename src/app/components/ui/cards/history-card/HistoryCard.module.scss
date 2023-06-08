@@ -2,7 +2,7 @@
   cursor: pointer;
   background-color: white;
   border-radius: 12px;
-  width: 488px;
+  width: clamp(240px, 100%, 480px);
   height: 64px;
 
   padding: 16px 16px 12px 16px;
@@ -19,6 +19,6 @@
     display: flex;
     justify-content: space-between;
 
-    align-items: baseline;
+    align-items: end;
   }
 }

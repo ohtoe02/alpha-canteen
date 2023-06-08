@@ -1,7 +1,7 @@
 .compact-card {
   display: flex;
   min-height: 80px;
-  width: 480px;
+  width: clamp(300px, 100%, 480px);
   justify-content: space-between;
   align-items: center;
   border-radius: 12px;
@@ -27,6 +27,7 @@
 
   .info {
     flex: 1;
+    text-overflow: ellipsis;
     gap: 8px;
     display: flex;
     flex-direction: column;

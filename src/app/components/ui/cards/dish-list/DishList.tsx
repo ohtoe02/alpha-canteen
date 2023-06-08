@@ -1,7 +1,7 @@
 import styles from './DishList.module.scss'
 import { dishType } from '../../../../utils/types/dishes/dishType'
 import DishCard from '../dish-card/DishCard'
-import { useState } from 'react'
+import {memo, useState} from 'react'
 
 function DishList({
 	dishes,
@@ -20,7 +20,7 @@ function DishList({
 	const maxPages = Math.ceil(dishes.length / 4)
 
 	const selectHandler = (event: any, dish: dishType) => {
-		const newDish = cart[category] === dish ? null : dish
+		const newDish = cart[category]?.id === dish?.id ? null : dish
 		chooseHandler(newDish)
 	}
 
@@ -70,4 +70,4 @@ function DishList({
 	)
 }
 
-export default DishList
+export default memo(DishList)

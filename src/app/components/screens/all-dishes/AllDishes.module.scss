@@ -1,8 +1,8 @@
 @use 'src/app/utils/variables';
 
 .wrapper {
-  width: 60%;
   color: #282828;
+  margin: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,6 +10,7 @@
 
   section {
     flex: 1;
+    max-width: 568px;
     height: 568px;
     display: flex;
     align-items: center;
@@ -18,10 +19,23 @@
     .dish-list {
       flex: 1;
       display: flex;
+      width: 480px;
       flex-direction: column;
       margin-top: 32px;
       gap: 8px;
       overflow: auto;
+
+      @media screen and (max-width: 1440px){
+        & {
+          width: 360px;
+        }
+      }
+
+      @media screen and (max-width: 1080px){
+        & {
+          width: 300px;
+        }
+      }
 
       &::-webkit-scrollbar {
         display: none;
@@ -52,6 +66,19 @@
 
         transition: all 150ms ease;
 
+        @media screen and (max-width: 1440px){
+          & {
+            font-size: 20px;
+          }
+        }
+
+        @media screen and (max-width: 1060px){
+          & {
+            font-size: 16px;
+          }
+        }
+
+
         &.active {
           background-color: variables.$dark;
           font-weight: bold;
@@ -72,6 +99,7 @@
   }
 
   h3 {
+    text-align: center;
     margin-bottom: 16px;
   }
 }

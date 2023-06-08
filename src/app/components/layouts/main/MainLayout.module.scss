@@ -1,23 +1,34 @@
 @use 'src/app/utils/variables';
 
-
 .navigation-wrapper {
   background-color: white;
   height: 88px;
-  width: 100%;
+  width: 856px;
   position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 
+  @media screen and (max-width: 1080px) {
+    & {
+      width: 420px;
+    }
+  }
+
   .navigation {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
 
-    gap: 44px;
+    column-gap: clamp(8px, 5vw, 40px);
+
+    row-gap: 8px;
 
     list-style: none;
 
@@ -72,13 +83,9 @@
 .header {
   top: 88px;
   left: 50%;
-
   transform: translateX(-50%);
 
-  z-index: 1000;
-
   line-height: 100%;
-  margin: 0;
   position: absolute;
 
   color: variables.$dark
@@ -86,7 +93,7 @@
 
 .container {
   min-width: 100vw;
-  min-height: 100vh;
+  max-height: 80vh;
 
   position: relative;
 
@@ -95,4 +102,5 @@
   align-items: center;
   font-size: 24px;
   background-color: white;
+  box-shadow: 0 0 16px white;
 }

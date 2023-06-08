@@ -9,7 +9,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #000;
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,16 +23,17 @@
   margin: 0;
   padding: 0;
   line-height: 100%;
+  text-overflow: ellipsis;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #FF4F4F;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #535bf2;
+  color: #ffa3a3;
 }
 
 body {
@@ -131,11 +132,6 @@ h3 {
   font-weight: bold;
 }
 
-p {
-  font-size: variables.$text_default;
-  font-weight: normal;
-}
-
 h4 {
   font-size: variables.$text-medium;
   font-weight: normal;
@@ -146,6 +142,12 @@ h5 {
   font-weight: normal;
 }
 
+p {
+  font-size: variables.$text_default;
+  font-weight: normal;
+  text-overflow: ellipsis;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -153,5 +155,39 @@ h5 {
   }
   a:hover {
     color: #747bff;
+  }
+}
+
+@media screen and (max-width: 1382px){
+  h1 {
+    font-size: variables.$text_xlarge;
+    line-height: 100%;
+    font-weight: 200;
+  }
+
+  h2 {
+    font-size: variables.$text-large;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: variables.$text_default;
+    font-weight: bold;
+  }
+
+  h4 {
+    font-size: variables.$text-medium;
+    font-weight: normal;
+  }
+
+  h5 {
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: variables.$text-medium;
+    font-weight: normal;
+    text-overflow: ellipsis;
   }
 }

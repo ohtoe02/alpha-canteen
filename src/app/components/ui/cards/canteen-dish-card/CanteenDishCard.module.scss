@@ -1,7 +1,7 @@
 .canteen-card {
   display: flex;
   min-height: 44px;
-  width: 480px;
+  width: clamp(240px, 100%, 480px);
   justify-content: space-between;
   background-color: white;
   align-items: center;

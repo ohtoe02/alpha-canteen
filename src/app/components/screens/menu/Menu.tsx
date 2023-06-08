@@ -1,13 +1,15 @@
 import styles from './Menu.module.scss'
 import DishList from '../../ui/cards/dish-list/DishList'
-import { usePageTitle } from '../../layouts/main/MainLayout'
-import { useEffect, useState } from 'react'
-import { getDatabase, ref, get, child } from 'firebase/database'
+import {usePageTitle} from '../../layouts/main/MainLayout'
+import {useEffect, useState} from 'react'
+import {getDatabase, ref, get, child} from 'firebase/database'
 import Modal from 'react-modal'
-import { categoriesNames } from '../../../utils/constants'
+import {categoriesNames} from '../../../utils/constants'
 import Checkout from '../../ui/checkout/Checkout'
-import { dishType } from '../../../utils/types/dishes/dishType'
+import {dishType} from '../../../utils/types/dishes/dishType'
 import {useCredentials} from "../../../../hooks/use-auth";
+import {useDispatch, useStore} from "react-redux";
+import {setDish, clearCart} from "../../../store/slices/cartSlice";
 
 const customStyles = {
 	content: {
@@ -44,7 +46,10 @@ function Menu(): JSX.Element {
 	const [isCartOpen, setIsCartOpen] = useState(false)
 	const setPageTitle: any = usePageTitle()
 	const database = getDatabase()
-	const { school } = useCredentials()
+	const dispatch = useDispatch()
+	const store = useStore()
+	const {school} = useCredentials()
+
 
 	useEffect(() => {
 		document.title = 'Меню'
@@ -64,16 +69,26 @@ function Menu(): JSX.Element {
 		getDishes()
 	}, [])
 
+	useEffect(() => {
+		// @ts-ignore
+		setCart(store.getState().cart)
+
+	}, [schoolDishesCur]);
+
+
 	const updateCart = (category: string, dish: dishType | null) => {
-		setCart({ ...cart, [category]: dish })
+		setCart({...cart, [category]: dish})
+		dispatch(setDish({type: category, dish: dish}))
 	}
 
-	const clearCart = () => {
+
+	const clearCartHandler = () => {
 		setCart({
 			mainDish: null,
 			secondDish: null,
 			drink: null
 		})
+		dispatch(clearCart())
 		setIsCartOpen(false)
 	}
 
@@ -93,7 +108,7 @@ function Menu(): JSX.Element {
 						setIsCartOpen(false)
 					}}
 					removeDish={updateCart}
-					clearCart={clearCart}
+					clearCart={clearCartHandler}
 				/>
 			</Modal>
 
@@ -107,7 +122,7 @@ function Menu(): JSX.Element {
 						updateCart('mainDish', dish)
 					}}
 				/>
-				<div className={styles.divider} />
+				<div className={styles.divider}/>
 				<DishList
 					dishes={Object.values(schoolDishesCur['secondaryDishes'])}
 					cart={cart}

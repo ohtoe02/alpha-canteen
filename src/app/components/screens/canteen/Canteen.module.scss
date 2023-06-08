@@ -1,7 +1,8 @@
 @use 'src/app/utils/variables';
 
 .wrapper {
-  width: 60%;
+  margin: 0 24px;
+
   color: #282828;
   display: flex;
   justify-content: space-between;
@@ -11,12 +12,12 @@
   section {
     flex: 1;
     height: 568px;
+    max-width: 568px;
     display: flex;
     align-items: center;
     flex-direction: column;
 
     .dish-list {
-      flex: 1;
       display: flex;
       flex-direction: column;
       padding: 4px;
@@ -37,7 +38,7 @@
 
     .class {
       display: flex;
-      width: 50%;
+      min-width: 204px;
       justify-content: space-between;
       align-items: center;
       border-radius: 8px;
@@ -90,7 +91,6 @@
     height: 60vh;
     width: 2px;
     border-radius: 50px;
-    margin: 0;
     padding: 0;
   }
 

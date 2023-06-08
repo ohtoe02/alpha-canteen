@@ -5,6 +5,8 @@ import { useAuth } from '../../../../hooks/use-auth'
 import { useDispatch } from 'react-redux'
 import {removeUser, setUser} from '../../../store/slices/userSlice'
 import {ToastContainer} from "react-toastify";
+import {clearCart} from "../../../store/slices/cartSlice";
+import {clearStudents} from "../../../store/slices/studentsSlice";
 
 function MainLayout(): JSX.Element {
 	const [pageTitle, setPageTitle] = useState('Меню')
@@ -73,15 +75,17 @@ function MainLayout(): JSX.Element {
 					{/*>*/}
 					{/*	Профиль*/}
 					{/*</NavLink>*/}
-					<a style={{position: "absolute", right: '64px', cursor: "pointer"}}
-						onClick={() => {
-							dispatch(removeUser())
-							navigate('/login')
-						}}
-					>
-						Выйти
-					</a>
 				</ul>
+				<a style={{position: "absolute", right: '-128px', top: '32px', cursor: "pointer"}}
+				   onClick={() => {
+					   dispatch(removeUser())
+					   dispatch(clearCart())
+					   dispatch(clearStudents())
+					   navigate('/login')
+				   }}
+				>
+					Выйти
+				</a>
 			</nav>
 			<h1 className={styles.header}>{pageTitle}</h1>
 			<ToastContainer />

@@ -1,7 +1,7 @@
 @use 'src/app/utils/variables';
 
 .container {
-  width: 1240px;
+  max-width: 1240px;
   height: 600px;
 
   display: flex;

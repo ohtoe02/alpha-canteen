@@ -1,7 +1,6 @@
 @use 'src/app/utils/variables';
 
 .wrapper {
-  width: 60%;
   color: #282828;
   display: flex;
   justify-content: space-between;
@@ -9,14 +8,12 @@
   gap: 44px;
 
   section {
-    flex: 1;
     height: 568px;
     display: flex;
     align-items: center;
     flex-direction: column;
 
     .class-list {
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -34,8 +31,7 @@
 
       .class {
         display: flex;
-        width: 360px;
-        justify-content: space-between;
+        min-width: 260px;
         align-items: center;
         border-radius: 8px;
         padding: 4px 28px;
@@ -45,15 +41,8 @@
         .classdivider {
           width: 2px;
           height: 40px;
+          margin: 0 12px;
           background-color: #282828;
-        }
-
-        .classname {
-
-        }
-
-        .classPopulation {
-
         }
       }
     }
@@ -113,15 +102,18 @@
       padding: 8px;
       background-color: white;
       box-shadow: 0 0 4px rgba(40, 40, 40, 0.25);
-      width: 440px;
+      min-width: 360px;
+      width: clamp(360px, 100%, 480px);
       position: relative;
       flex-direction: row;
       border-radius: 8px;
       cursor: pointer;
+      text-overflow: ellipsis;
 
       p {
         flex-shrink: 0;
         text-align: left;
+        text-overflow: ellipsis;
       }
 
       input[type=checkbox] {
@@ -138,6 +130,7 @@
   }
 
   h3 {
+    text-align: center;
     margin-bottom: 16px;
   }
 }

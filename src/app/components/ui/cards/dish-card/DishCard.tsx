@@ -1,6 +1,6 @@
 import styles from './DishCard.module.scss'
 import { dishType } from '../../../../utils/types/dishes/dishType'
-import { useState } from 'react'
+import {memo, useState} from 'react'
 
 function DishCard({
 	id,
@@ -47,4 +47,4 @@ function DishCard({
 	)
 }
 
-export default DishCard
+export default memo(DishCard)
